@@ -78,7 +78,7 @@ You should see replies from `10.126.3.5`.
 net use Q: \\nas-server\Ram /persistent:yes
 net use P: \\nas-server\Public /persistent:yes
 
-Save as map-nas-drives.bat
+'''Save as map-nas-drives.bat
 
 File type: All Files
 
@@ -92,7 +92,7 @@ powershell -Command "& {Set-Volume -DriveLetter Q -NewFileSystemLabel 'Ram SSO'}
 powershell -Command "& {Set-Volume -DriveLetter P -NewFileSystemLabel 'Public'}"
 Note: PowerShell is required for this. You can change labels as needed.
 Step 6: Delete Mapped Drives
-To disconnect mapped drives, use:
+To disconnect mapped drives, use:'''
 net use Q: /delete
 net use P: /delete
 Or delete all mapped drives:
