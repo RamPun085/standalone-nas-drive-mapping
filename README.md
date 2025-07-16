@@ -85,35 +85,43 @@ You should see replies from `10.126.3.5`.
 @echo off
 net use Q: \\nas-server\Ram /persistent:yes
 net use P: \\nas-server\Public /persistent:yes
-#Save the file as map-nas-drives.bat
+```
+Save the file as map-nas-drives.bat
 
-#File type: All Files
+File type: All Files
 
-#Location: Desktop or your preferred folder
+Location: Desktop or your preferred folder
 
-#Run the batch file by double-clicking it.
+Run the batch file by double-clicking it.
+
 Step 5: Customize Drive Labels
-#To make drive labels user-friendly, add these lines to the batch file after the mapping commands:
+To make drive labels user-friendly, add these lines to the batch file after the mapping commands:
+``` batch 
 powershell -Command "& {Set-Volume -DriveLetter Q -NewFileSystemLabel 'Ram SSO'}"
-powershell -Command "& {Set-Volume -DriveLetter P -NewFileSystemLabel 'Public'}"
-#Note: PowerShell is required for this. You can customize the labels as needed.
-#Step 6: Delete Mapped Drives
-#To disconnect mapped drives, use:
+powershell -Command"& {Set-Volume -DriveLetter P -NewFileSystemLabel 'Public'}"
+```
+Note: PowerShell is required for this. You can customize the labels as needed.
+Step 6: Delete Mapped Drives
+To disconnect mapped drives, use:
+```batch
 net use Q: /delete
 net use P: /delete
-#Or to delete all mapped drives:
-#Troubleshooting
-#If \\nas-server does not connect, verify the hosts file entry and try pinging the server.
+```
 
-#Ensure SMB service is running on the NAS device.
+Or to delete all mapped drives:
+Troubleshooting
+If \\nas-server does not connect, verify the hosts file entry and try pinging the server.
 
-#Verify that shared folder names and permissions are correct.
+Ensure SMB service is running on the NAS device.
 
-#For multiple PCs, consider adding DNS records on your router or local DNS server instead of editing the hosts file on each machine.
+Verify that shared folder names and permissions are correct.
 
-#Run batch files as Administrator if needed.
+For multiple PCs, consider adding DNS records on your router or local DNS server instead of editing the hosts file on each machine.
 
-#Additional Notes
-#When mapping drives manually, check Reconnect at sign-in if you want the drives to reconnect automatically after reboot.
+Run batch files as Administrator if needed.
 
-#Finish by verifying that mapped drives appear correctly in File Explorer'''
+Additional Notes
+When mapping drives manually, check Reconnect at sign-in if you want the drives to reconnect automatically after reboot.
+
+Finish by verifying that mapped drives appear correctly in File Explorer''''
+
